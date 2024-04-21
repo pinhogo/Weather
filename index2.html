@@ -12,20 +12,47 @@
 </head>
 <body>
 
-    <button class="dayselect">SEG</button>
+    
     <nav class="proxDays" >
-      <a href="">SEG</a>
-      <a href="">TER</a>
-      <a href="">QUA</a>
-      <a href="">QUI</a>
-      <a href="">SEX</a>
-      <a href="">SAB</a>
-      <a href="">DOM</a>
-    </nav>
+      <a href="" onclick="toggleBackground(event, this)">SEG</a>
+      <a href="" onclick="toggleBackground(event, this)">TER</a>
+      <a href="" onclick="toggleBackground(event, this)">QUA</a>
+      <a href="" onclick="toggleBackground(event, this)">QUI</a>
+      <a href="" onclick="toggleBackground(event, this)">SEX</a>
+      <a href="" onclick="toggleBackground(event, this)">SAB</a>
+      <a href="" onclick="toggleBackground(event, this)">DOM</a>
+    </nav><script src="js/index.js"></script>
 
 
-    <div class="preview"> teste</div>
 
+
+
+
+
+    <div class="preview">
+      <div class="cond">
+        <div class="um">Umidade
+          <div class="umidade">53</div> % <img src="img/moisture.svg" alt="">
+        </div>
+
+        <div>Vento
+          <div class="vento">12</div>Km/h<img src="img/wind.svg" alt="">
+        </div>
+      
+
+
+        <div class="rain"><img src="img/umbrella.svg" alt=""></div>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="situation"><img src="img/Sunrise.svg" alt=""></div>
   
   <section class="app">
 
@@ -48,9 +75,10 @@
 
     <div class="resultCity">
       <div class="banner1">
-        <div class="leftbanner" ><div id="tempatual"><img src="img/Thermomater.svg" alt="">32</div><span>ºC</span></div>
+        <div class="leftbanner" ><div id="tempatual"><img class="term" src="img/Thermomater.svg" alt="">32</div><span>ºC</span></div>
         <div class="rigthbanner"><div class="hour">14:32</div><div class="city">Porto Alegre</div></div>
       </div>
+      
     </div>
     
     

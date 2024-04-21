@@ -64,5 +64,7 @@ body{
 .dropdown:active .dropdown-menu{
     display: block;
 }
-
+.humidade .vento .rain{
+    padding-right: 20px;
+}
 

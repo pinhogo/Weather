@@ -15,6 +15,7 @@ body {
     position: absolute;
     z-index: 0;
     left: 20%;
+    background-color:dimgrey
 
 }
 
@@ -42,7 +43,6 @@ body {
     width: 671px;
     height: 714px;
     border-radius: 38px;
-    border: 1px solid #000;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(https://scontent.fpoa44-1.fna.fbcdn.net/v/t39.30808-6/356142655_614385207454816_197640787349228181_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGhQhUPRmzI14MLQzWphB5GIDnSUYtIeQsgOdJRi0h5C_-Tr2WmZZO-SroZzdUY58mL6u0Yy9D0iHopGdmW3_y7&_nc_ohc=bg8y3bmI7vwAb7CulPq&_nc_ht=scontent.fpoa44-1.fna&oh=00_AfDWB615EOlveKao8Itjg5T_TBMTscx3EYx9Ong5l_DtGA&oe=6627947A) lightgray -5.605px -13.713px / 101.947% 120.702% no-repeat;
 }
 
@@ -103,34 +103,11 @@ body {
     font-size: 28px;    
 }
 
-.preview{
-    display: flex;
-    z-index: 1;
-    position: absolute;
-    min-width: 471px;
-    min-height: 255px;
-    border-radius: 8px;
-    background: rgba(145, 194, 252, 0.88);
-    left: 95%;
-    bottom: 5%;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+
+.term{
+    padding-top: 20px;
 }
 
-.dayselect{
-    color: white;
-    font-size: 42px;
-    position: absolute;
-    z-index: 3;
-    background-color: transparent;
-    background-image: url(/img/Polygon.svg);
-    background-size: cover;
-    border: none;
-    width: 112px;
-    height: 57px;
-    background-repeat: no-repeat ;
-    left: 155%;
-    top: 59%;
-}
 .proxDays{
     display: flex;
     align-items: center;
@@ -145,14 +122,95 @@ body {
     z-index: 2;
     left: 160%;
     top: 62.5%;
+    margin: 0;
+    padding: 0;
 }
 
 .proxDays a{
     color: white;
     text-decoration: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 .proxDays a:hover{
-    color: aquamarine;
+    transform:  translateY(-10px) scale(1.4);
+    background-image: url(/img/Polygon.svg);
+     
+    min-width: 73.67px;
+    min-height: 39.4px;
+
+    border-radius: 10px;
     
+    background-size: cover;
+    background-repeat: no-repeat ;
+}
+
+.proxDays a.clicked {
+    transform:  translateY(-10px) scale(1.4);
+    background-image: url(/img/Polygon.svg);
+    background-size: cover;
+    min-width: 73.67px;
+    min-height: 39.4px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+  }
+
+  .situation{
+    display: flex;
+    min-width: 350px;
+    min-height: 262px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background: rgba(247, 247, 247, 0.28);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    z-index: 1;
+    position: absolute;
+    left: 5.2%;
+    bottom: 10%;
+}
+.situation img{
+    width: 211px;
+    height: 211px;
+    animation: rotate;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.situation img {
+    animation: rotate 10s linear infinite;
+}
+.preview img{
+    width: 38px;
+    height: 38px;
+}	
+.preview{
+    padding: 25px;
+    flex-direction: column;
+    
+    align-items: end;
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    min-width: 441px;
+    min-height: 255px;
+    border-radius: 8px;
+    background: rgba(145, 194, 252, 0.88);
+    left: 95%;
+    bottom: 5%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+}
+cond{
+    display: flex;
+    flex-direction: column;
 }
