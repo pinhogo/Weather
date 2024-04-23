@@ -15,7 +15,7 @@ body {
     position: absolute;
     z-index: 0;
     left: 20%;
-    background-color:dimgrey
+    background-color:rgb(251, 107, 55)
 
 }
 
@@ -36,7 +36,7 @@ body {
     border-radius: 10px;
 }
 
-.resultCity {
+.resultCity { /** div com o resultado da cidade apos o search */
     display: flex;
     padding-top: 100px;
     justify-content: center;
@@ -136,7 +136,7 @@ body {
     justify-content: center;
 }
 
-.proxDays a:hover{
+.proxDays a:hover{ /**efeito do hover no preview*/
     transform:  translateY(-10px) scale(1.4);
     background-image: url(/img/Polygon.svg);
      
@@ -147,9 +147,11 @@ body {
     
     background-size: cover;
     background-repeat: no-repeat ;
+
+    
 }
 
-.proxDays a.clicked {
+.proxDays a.clicked { /**efeito do click no preview*/
     transform:  translateY(-10px) scale(1.4);
     background-image: url(/img/Polygon.svg);
     background-size: cover;
@@ -159,7 +161,7 @@ body {
     border-radius: 10px;
   }
 
-  .situation{
+  .situation{ /**div do Icone Principal */
     display: flex;
     min-width: 350px;
     min-height: 262px;
@@ -173,7 +175,7 @@ body {
     left: 5.2%;
     bottom: 10%;
 }
-.situation img{
+.situation img{ /**Icone Principal */
     width: 211px;
     height: 211px;
     animation: rotate;
@@ -190,27 +192,95 @@ body {
 .situation img {
     animation: rotate 10s linear infinite;
 }
-.preview img{
-    width: 38px;
-    height: 38px;
-}	
+
+.currentclime{ /** detalhes sobre a previsao do dia */
+    display: flex;
+    position: absolute;
+    left: 105%;
+    bottom: 0%;
+    
+    width: 370px;
+    height: 714px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.20);
+    font-size: 22px;
+    justify-content: center;
+}
+.currentclime span{
+    padding-top: 22px;
+    color: white;
+    font-weight: 700;
+}
+
 .preview{
     padding: 25px;
-    flex-direction: column;
-    
-    align-items: end;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-around;
     display: flex;
     z-index: 1;
     position: absolute;
-    min-width: 441px;
-    min-height: 255px;
+    width: 441px;
+    height: 255px;
     border-radius: 8px;
     background: rgba(145, 194, 252, 0.88);
     left: 95%;
     bottom: 5%;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+
 }
-cond{
-    display: flex;
+.previewIcons img{
+    width: 75px;
+    height: 75px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.85); 
+    border-radius: 100px;
+   
+}
+
+.nextdaysi{
     flex-direction: column;
+    display: flex;
+    align-items: start;
+}
+.tempMax{
+    max-height: 75px;
+    font-size: 65px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.tempMin{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 45px;
+    color: white;
+}
+.tempMin img{
+    width: 60px;
+    height: 60px;
+
+}
+.nextStatus{
+    display: flex;
+    align-content: space-between;
+    align-items: end;
+    flex-direction: column;
+    font-size: 22px;
+    color: white;
+}
+.nextStatus span{
+    font-size: 15px;
+    
+}
+
+.moisture, .windforce, .probrain{
+    padding-bottom: 15px;
+}
+.statusIcons div{
+    height: 75px;
+   
+
+}
+.statusIcons img{
+    width: 55px;
+    height: 55px;
+
 }

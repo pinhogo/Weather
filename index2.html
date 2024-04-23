@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,31 +21,37 @@
       <a href="" onclick="toggleBackground(event, this)">SEX</a>
       <a href="" onclick="toggleBackground(event, this)">SAB</a>
       <a href="" onclick="toggleBackground(event, this)">DOM</a>
-    </nav><script src="js/index.js"></script>
+    </nav>
 
 
 
+  <section class="currentclime">
+    <span id="atualday">DD/MM/AAAA</span>
 
 
 
-
-    <div class="preview">
-      <div class="cond">
-        <div class="um">Umidade
-          <div class="umidade">53</div> % <img src="img/moisture.svg" alt="">
-        </div>
-
-        <div>Vento
-          <div class="vento">12</div>Km/h<img src="img/wind.svg" alt="">
-        </div>
-      
+  </section>
 
 
-        <div class="rain"><img src="img/umbrella.svg" alt=""></div>
+
+    <section class="preview">
+      <div class="nextdaysi">  
+        <div class="previewIcons"><img src="img/icons/sunnypartcloud.png" alt=""></div>
+        <div class="tempMax">32<span>°C</span></div>
+        <div class="tempMin">22<span>°C</span><img src="img/Thermomater.svg" alt=""></div>
+      </div>
+      <div class="nextStatus">
+        <span>Humidade<br></span><div class="moisture">53%</div>
+        <span>Vel. Vento<br></span><div class="windforce">12 Km/h</div>
+        <span>Chance de chuva<br></span><div class="probrain">40%</div>
+      </div>
+      <div class="statusIcons">   
+        <div><img src="img/moisture.svg" alt=""></div>
+        <div><img src="img/wind.svg" alt=""></div>
+        <div><img src="img/umbrella.svg" alt=""></div>
       </div>
 
-
-    </div>
+    </section>
 
 
 
@@ -86,6 +92,6 @@
  
 
 
- 
+    <script src="js/index.js"></script>
 </body>
 </html>

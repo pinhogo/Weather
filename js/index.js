@@ -11,4 +11,25 @@ function toggleBackground(event, element) {
     // Adicionar a classe "clicked" apenas ao elemento clicado
     element.classList.add('clicked');
   }
+
+  function DataAtual() {
+    const meses = [
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+
+    const dataAtual = new Date();
+    const dia = dataAtual.getDate();
+    const mes = meses[dataAtual.getMonth()];
+    const ano = dataAtual.getFullYear();
+
+    let day = `${dia} de ${mes} de ${ano}`;
+
+    // Atualize o conteúdo do elemento com ID "atualday" com a data atual
+    document.getElementById("atualday").textContent = day;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  DataAtual();
+});
   
