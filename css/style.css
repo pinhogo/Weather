@@ -15,7 +15,7 @@ body {
     position: absolute;
     z-index: 0;
     left: 20%;
-    background-color:rgb(251, 107, 55)
+    background-color: darkgray;
 
 }
 
@@ -120,7 +120,7 @@ body {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);  
     position: absolute;
     z-index: 2;
-    left: 160%;
+    left: 170%;
     top: 62.5%;
     margin: 0;
     padding: 0;
@@ -196,38 +196,72 @@ body {
 .currentclime{ /** detalhes sobre a previsao do dia */
     display: flex;
     position: absolute;
-    left: 105%;
+    left: 115%;
     bottom: 0%;
-    
-    width: 370px;
-    height: 714px;
+
     border-radius: 15px;
     background: rgba(0, 0, 0, 0.20);
-    font-size: 22px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+    width: 370px;
+    height: 714px;
+    z-index: 0;
+
+    flex-direction: row;
+    align-content: center;
+    padding-top: 120px;
     justify-content: center;
 }
-.currentclime span{
+
+
+#atualday{
+    display: flex;
+    position: absolute;
+    right: -60%;
+    top: 10%;
+    z-index: 3;
+    font-size: 24px;
     padding-top: 22px;
     color: white;
-    font-weight: 700;
+    font-weight: 500;
+   
+}
+
+
+
+.atualstatus{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    
+    align-content: space-between;
+   
+    font-size: 22px;
+    color: white;
 }
 
 .preview{
-    padding: 25px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: space-around;
     display: flex;
-    z-index: 1;
     position: absolute;
+    left: 105%;
+    bottom: 5%;
+
+    background: rgba(145, 194, 252, 0.88);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
     width: 441px;
     height: 255px;
-    border-radius: 8px;
-    background: rgba(145, 194, 252, 0.88);
-    left: 95%;
-    bottom: 5%;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+    z-index: 1;
 
+    border-radius: 8px;
+
+    justify-content: space-between;
+
+    padding: 25px;
+    flex-direction: row;
+    align-content: space-around;
+    
+    
+    
 }
 .previewIcons img{
     width: 75px;
