@@ -1,5 +1,5 @@
 function toggleBackground(event, element) {
-    event.preventDefault(); // ÀLterar depois
+    
     
     var links = document.querySelectorAll('.proxDays a'); // Selecionar todos os links
   
