@@ -1,57 +1,93 @@
 const api = {
-    key: "64ed82577ced7f69cb1687f0ce536131",
-    base: "https://api.openweathermap.org/data/2.5/",
-    lang: "pt_br",
+    key: "9bb807f8e0ef4dc7a1aca1f94389548b",
+    base: "https://api.openweathermap.org/data/3.0/onecall?",
+    lang: "pt",
     units: "metric",
     busca: "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=",
 }
 
-
 const searchButton = document.querySelector('#search-button');
-const results = document.querySelector(".city");
-let cidade;
-let latitude;
-let longitude;
+
+searchButton.addEventListener('click', function () {
+
+    const results = document.querySelector(".city");
+    const TempAtual = document.querySelector("#tempatual");
+
+    let cidade;
+    let lat;
+    let lon;
 
 
-searchButton.addEventListener('click', function() {
+
     // Seleciona o campo de busca
     const inputCidade = document.querySelector('#search-input');
     // Obtém o valor digitado no campo de busca
     const valorDigitado = inputCidade.value;
     cidade = inputCidade.value;
-    
+
     // Agora você pode usar o valorDigitado como desejar, por exemplo, exibindo-o no console
     console.log('Valor digitado:', valorDigitado);
 
-    fetch(api.busca+cidade)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Erro na requisição: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        data.forEach(obj => {
-             latitude = obj.lat;
-             longitude = obj.lon;
-             cidade = obj.name;
-             results.textContent = cidade;
+    fetch(api.busca + cidade)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            data.forEach(obj => {
 
-        
-             
+                let latitude = obj.lat;
+                let longitude = obj.lon;
+                cidade = obj.name;
+                results.textContent = cidade;
 
-             console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+                lat = latitude.slice(0, -3);
+                lon = longitude.slice(0, -3);
+
+
+
+                console.log(`Cidade: ${cidade}, Latitude: ${lat}, Longitude: ${lon}`);
+
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao obter dados da API:', error);
+
+
         });
-    })
-    .catch(error => {
-        console.error('Erro ao obter dados da API:', error);
 
-        
-    });
+
+    //fetch(`${api.base}lat=${lat}&lon=${lon}&appid=${api.key}`);
+    
+    function searchResults(lat, lon) {
+        fetch(`${api.base}lat=${lat}&lon=${lon}&appid=${api.key}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`http error: status ${response.status}`)
+                }
+                return response.json();
+            })
+            .catch(error => {
+                alert(error.message)
+            })
+            .then(response => {
+                dados.forEach
+                displayResults(response)
+            });
+    }
+
+    function displayResults(weather) {
+
+        console.log(`Cidade: ${weather}`);
+
+    }
+
 
 
 });
+
 
 
 
