@@ -20,21 +20,36 @@ body {
 }
 
 .CityConsult {
-    width: 671px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
     padding-bottom: 24px;
-
+    padding-top: 24px;
 }
-
-.btn {
-    border-color: #000;
-    color: white;
-    text-decoration: none;
-    background-color: #ffffff;
+.CityConsult input{
+    width: 300px;
+    height: 35px;
     border-radius: 10px;
+    padding-left: 15px;
+    border: none;
 }
+
+#search-button {
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px #999;
+    display: inline-block;
+    padding: 5px 10px;
+    outline: none;
+    
+    
+}
+
+#search-button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 
 .resultCity { /** div com o resultado da cidade apos o search */
     display: flex;

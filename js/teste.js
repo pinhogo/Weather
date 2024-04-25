@@ -1,100 +1,92 @@
 const api = {
-    key: "4028abbee30b3f9908233d0a6e4c217a",
-    base: "https://api.openweathermap.org/data/3.0/",
+    key: "64ed82577ced7f69cb1687f0ce536131",
+    base: "https://api.openweathermap.org/data/2.5/",
     lang: "pt_br",
     units: "metric",
-    findlocate: "http://api.openweathermap.org/geo/1.0/direct?q="
+    busca: "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=",
 }
 
-const city = document.querySelector('.city')
-/**const date = document.querySelector('.date');*/
-const container_img = document.querySelector('.situation');
-const container_temp = document.querySelector('.leftbanner');
-const temp_number = document.querySelector('#tempatual');
-const temp_unit = document.querySelector('.leftbanner span');
-/**const weather_t = document.querySelector('.weather');                    **CRIAR*/
-const search_input = document.querySelector('.form-control');
-const search_button = document.querySelector('.btn');
-/**const low_high = document.querySelector('.low-high');                 ???? */
+
+const searchButton = document.querySelector('#search-button');
+const results = document.querySelector(".city");
+let cidade;
+let latitude;
+let longitude;
 
 
-search_button.addEventListener('click', function() {
-    searchResults(search_input.value)
-})
+searchButton.addEventListener('click', function() {
+    // Seleciona o campo de busca
+    const inputCidade = document.querySelector('#search-input');
+    // Obtém o valor digitado no campo de busca
+    const valorDigitado = inputCidade.value;
+    cidade = inputCidade.value;
+    
+    // Agora você pode usar o valorDigitado como desejar, por exemplo, exibindo-o no console
+    console.log('Valor digitado:', valorDigitado);
 
-search_input.addEventListener('keypress', enter)
-function enter(event) {
-    key = event.keyCode
-    if (key === 13) {
-        searchResults(search_input.value)
+    fetch(api.busca+cidade)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        data.forEach(obj => {
+             latitude = obj.lat;
+             longitude = obj.lon;
+             cidade = obj.name;
+             results.textContent = cidade;
+
+        
+             
+
+             console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        });
+    })
+    .catch(error => {
+        console.error('Erro ao obter dados da API:', error);
+
+        
+    });
+
+
+});
+
+
+
+
+
+
+/*searchButton.addEventListener('click', function() {
+    // Seleciona o campo de busca
+    const inputCidade = document.querySelector('#search-input');
+    // Obtém o valor digitado no campo de busca
+    cidade = inputCidade.value;
+    
+    // Limpa os resultados anteriores
+    results.innerHTML = '';
+
+    // Verifica se o campo de busca não está vazio
+    if (cidade.trim() !== '') {
+        // Realiza a busca usando a cidade digitada
+        const url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + cidade;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    data.forEach(element => {
+                        // Exibe os resultados
+                        results.innerHTML += `<div class='result'>${element.display_name}<br>Lat: ${element.lat} Lng: ${element.lon}</div>`;
+                    });
+                } else {
+                    // Exibe uma mensagem se não forem encontrados resultados
+                    results.innerHTML = "<p style='color: red;'>Cidade não encontrada</p>";
+                }
+            })
+            .catch(err => console.log(err));
+    } else {
+        // Exibe uma mensagem se o campo de busca estiver vazio
+        results.innerHTML = "<p style='color: red;'>Por favor, digite o nome de uma cidade</p>";
     }
-}
-function searchResults(cidade) {
-    fetch(`${api.findlocate}${cidade}&limit=1&appid=${api.key}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`http error: status ${response.status}`);
-            }
-            return response.json();
-        })
-        .catch(error => {
-            alert(error.message);
-        })
-        .then(response => {
-            // Verifica se há resultados na resposta antes de chamar displayResults
-            if (response && response.length > 0) {
-                const lat = response[0].lat;
-                const lon = response[0].lon;
-                displayResults(lat, lon);
-            } else {
-                // Caso contrário, exibe uma mensagem de erro
-                alert("Nenhum resultado encontrado para a cidade.");
-            }
-        });
-
-}
-
-/**function searchResults(city) {
-    fetch(`${api.findlocate}${city}&limit=1&appid=${api.key}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`http error: status ${response.status}`)
-            }
-            return response.json();
-        })
-        .catch(error => {
-            alert(error.message)
-        })
-        .then(response => {
-            displayResults(response)
-        });
-}**/
-
-function displayResults(lat, lon) {
-    console.log(lat, lon)
-
-    city.innerText = `${weather.name}`;
-
-    /**let now = new Date();
-    date.innerText = dateBuilder(now);*/
-
-    let iconName = weather.weather[0].icon;
-    container_img.innerHTML = `<img src="../img/${iconName}.png">`;
-
-    let temperature = `${Math.round(weather.main.temp)}`
-    temp_number.innerHTML = temperature;
-    temp_unit.innerHTML = `°c`;
-
-    /**weather_tempo = weather.weather[0].description;
-    weather_t.innerText = capitalizeFirstLetter(weather_tempo)
-
-    low_high.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c`;
-}
-
-
-
-
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);*/
-}
+});*/
