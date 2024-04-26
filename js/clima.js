@@ -4,7 +4,7 @@ const api = {
     Coordinates: "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=",
     Time: "http://api.timezonedb.com/v2.1/get-time-zone?key=TX8A38XHYWK0&format=json&by=position",
     lang: "lang=pt",
-    units: "metric",
+    //units: "metric",
 }
 
 
@@ -26,16 +26,6 @@ const pwindforce = document.querySelector('.pwindforce');
 const pmoisture = document.querySelector('.pmoisture');
 const pprobrain = document.querySelector('.pprobrain');
 const previewIcons = document.querySelector('.previewIcons');
-
-
-const seg = document.querySelector('.day1');
-const ter = document.querySelector('.day2');
-const qua = document.querySelector('.day3');
-const qui = document.querySelector('.day4');
-const sex = document.querySelector('.day5');
-const sab = document.querySelector('.day6');
-const dom = document.querySelector('.day0');
-
 
 let lat;
 let lon;
@@ -146,7 +136,7 @@ function searchTemp(lat, lon) {
 
 function display(data) {
 
-    TempAtual.innerHTML = data.data[0].temp
+    TempAtual.innerHTML = `${Math.round(data.data[0].temp)}`;
     windforce.innerHTML = `${data.data[0].wind_spd} m/s`; 
     moisture.innerHTML = `${data.data[0].rh} %`; 
     probrain.innerHTML = `${Math.round(data.data[0].precip)} mm/h`; 
