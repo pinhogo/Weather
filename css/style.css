@@ -15,8 +15,7 @@ body {
     position: absolute;
     z-index: 0;
     left: 20%;
-    background-image: url(../img/b.jpg)
-
+    background-image: url("../img/b.jpg");
 }
 
 .CityConsult {
@@ -300,7 +299,7 @@ body {
     height: 75px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.85); 
     border-radius: 50px;
-    background-color: rgba(145, 194, 252, 0.88);
+    background-color: rgba(0, 0, 0, 0);
    
 }
 
