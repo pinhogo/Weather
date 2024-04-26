@@ -6,6 +6,9 @@ const api = {
     busca: "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=",
 }
 
+let cidade;
+
+
 const searchButton = document.querySelector('#search-button');
 
 searchButton.addEventListener('click', function () {
@@ -13,7 +16,7 @@ searchButton.addEventListener('click', function () {
     const results = document.querySelector(".city");
     const TempAtual = document.querySelector("#tempatual");
 
-    let cidade;
+    
     let lat;
     let lon;
 
@@ -61,28 +64,9 @@ searchButton.addEventListener('click', function () {
 
     //fetch(`${api.base}lat=${lat}&lon=${lon}&appid=${api.key}`);
     
-    function searchResults(lat, lon) {
-        fetch(`${api.base}lat=${lat}&lon=${lon}&appid=${api.key}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`http error: status ${response.status}`)
-                }
-                return response.json();
-            })
-            .catch(error => {
-                alert(error.message)
-            })
-            .then(response => {
-                dados.forEach
-                displayResults(response)
-            });
-    }
+    
 
-    function displayResults(weather) {
-
-        console.log(`Cidade: ${weather}`);
-
-    }
+    
 
 
 
@@ -91,10 +75,25 @@ searchButton.addEventListener('click', function () {
 
 
 
+function searchResults(lat, lon) {
+    fetch(`${api.base}lat=${lat}&lon=${lon}&appid=${api.key}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`http error: status ${response.status}`)
+            }
+            return response.json();
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+        .then(response => {
+            dados.forEach
+            displayResults(response)
+        });
+}
 
 
-
-/*searchButton.addEventListener('click', function() {
+searchButton.addEventListener('click', function() {
     // Seleciona o campo de busca
     const inputCidade = document.querySelector('#search-input');
     // Obtém o valor digitado no campo de busca
