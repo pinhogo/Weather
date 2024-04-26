@@ -19,7 +19,7 @@
       <div class="day4" onclick="toggleBackground(event, this)">QUI</div>
       <div class="day5" onclick="toggleBackground(event, this)">SEX</div>
       <div class="day6" onclick="toggleBackground(event, this)">SAB</div>
-      <div class="day7" onclick="toggleBackground(event, this)">DOM</div>
+      <div class="day0" onclick="toggleBackground(event, this)">DOM</div>
     </nav>
 
 
@@ -53,12 +53,12 @@
       <div class="nextdaysi">  
         <div class="previewIcons"><img src="img/icons/mostlycloudy.png" alt=""></div>
         <div class="tempMax">32<span>°C</span></div>
-        <div class="tempMin">22<span>°C</span><img src="img/Thermomater.svg" alt=""></div>
+        <div class="tempMin">22<span>°C</span></div>
       </div>
       <div class="nextStatus">
-        <span>Humidade<br></span><div class="moisture">53%</div>
-        <span>Vel. Vento<br></span><div class="windforce">12 Km/h</div>
-        <span>Chance de chuva<br></span><div class="probrain">40%</div>
+        <span>Humidade<br></span><div class="pmoisture">53%</div>
+        <span>Vel. Vento<br></span><div class="pwindforce">12 Km/h</div>
+        <span>Precipitação<br></span><div class="pprobrain">2.4 mm/h</div>
       </div>
       <div class="statusIcons">   
         <div><img src="img/moisture.svg" alt=""></div>
@@ -84,8 +84,11 @@
       <div id="search-container">
         <input type="text" id="search-input" placeholder="Encontrar cidade...">
         <button id="search-button">
-            <img src="img/search.svg" alt="Ícone de pesquisa" style="width: 20px; height: 20px;">
+            <img src="img/search.svg" alt="" style="width: 20px; height: 20px;">
         </button>
+        <button onclick="getLocation()" id="locate">
+          <img src="img/geo.svg" alt="" style="width: 20px; height: 20px;">
+      </button>
     </div>
     </nav>
    
@@ -96,12 +99,13 @@
         <div class="leftbanner" ><div id="tempatual"><img class="term" src="img/Thermomater.svg" alt="">32</div><span>ºC</span></div>
         <div class="rigthbanner"><div class="hour">14:32</div><div class="city">Porto Alegre</div></div>
       </div>
-      
     </div>
-    
+
+    <div class="description">Chovendo muito</div>
     
    </section>
- 
+
+   
 
 
     
